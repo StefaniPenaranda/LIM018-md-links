@@ -4,8 +4,10 @@ const route = './README.md';
 // const axios = require('axios');
 const mdPruebaAbsoluta = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/primero.md';
 const mdPruebaRelative = 'LIM018-md-links/prueba_1/primero.md';
+// const pruebasinLink = 'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\prueba_2.md';
 //const mdpruebadirectory = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links';
 // const  carpetaPrueba = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1';
+// const falla = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/package.json'
 // console.log(process.argv[2])
 // console.log(__dirname)
 // console.log(path);
@@ -37,7 +39,7 @@ convertToAbsolut(mdPruebaRelative);
 
 // 3.- Comprueba si es un archivo o no // return true or false-------------------------
 const fileRead = (archivo) => fs.statSync(archivo).isFile();
-fileRead(route)
+console.log(fileRead(route))
 
 // 4.-  Me indica el extencion que tiene la ruta// return la extensión del archivo-----
 const readMd = (router) => path.extname(router);
@@ -47,14 +49,42 @@ readMd(route);
 // 5.- lee el archivo  // return todo el interior del archivo--------------------------------
 const readPath = (archivo) => fs.readFileSync(archivo,'utf-8');
 readPath(mdPruebaAbsoluta);
-//
+// 6.-
 const readFiles = (router) =>{
   if(readMd(router) === '.md'){
-    return readPath(router)
+    return fs.readFileSync(router,'utf-8')
   }
   return  'Error, este archivo no es archivo .md'
 }
 readFiles('C:/Users/STEFANI/desktop/md-links/LIM018-md-links/index.js');
+
+// 9.- Función para leer los links
+const getLinks = (router) => {
+  const expresionreglar = /(\[(.*?)\])?\(http(.*?)\)/gm  // para leer links
+  const linksArray = [];
+  const comproReadFiles = readFiles(router);
+  const readlinks = comproReadFiles.match(expresionreglar)
+  if (!readlinks){
+    console.log('No se encontraron link');
+    return [];
+  }
+  for(let i=0; i < readlinks.length; i++){
+    // const firstPosition = readlinks[i].indexOf('(')+1;
+    // const lastPosition = readlinks[i].indexOf(')')-1;
+    const extrasionLinks = readlinks[i].substring(readlinks[i].indexOf('(')+1,readlinks[i].indexOf(')')-1);
+    const texts = readlinks[i].slice(1, readlinks[i].indexOf("]"));
+
+    const obj= {
+      href: extrasionLinks,
+      text: texts.substring(0, 50),
+      file: router
+    }
+    linksArray.push(obj);
+  }
+return linksArray;
+}
+// console.log(getLinks(mdPruebaAbsoluta))
+getLinks(mdPruebaAbsoluta);
 // 6.- Para conprobar si es o no un directorio - retorna un true or false---------------------
 // const verifiesPathIsDirectory = (router) => {
 //   verificadeDirectory = fs.statSync(router)
@@ -80,28 +110,13 @@ readFiles('C:/Users/STEFANI/desktop/md-links/LIM018-md-links/index.js');
 // }
 // console.log(openByDirectory(mdPruebaAbsoluta))
 
-// 9.- Función para leer los links
-const getLinks = (router) => {
-  const expresionreglar = /(\[(.*?)\])?\(http(.*?)\)/gm  // para leer links
-  const linksArray = [];
-  const comproReadFiles = readFiles(router);
-  const readlinks = comproReadFiles.match(expresionreglar)
-  for(let i=0; i < readlinks.length; i++){
-    const firstPosition = readlinks[i].indexOf('(')+1;
-    const lastPosition = readlinks[i].indexOf(')')-1;
-    const extrasionLinks = readlinks[i].substring(firstPosition,lastPosition)
-    linksArray.push(extrasionLinks)
-  }
-return linksArray;
 
-}
-console.log(getLinks(mdPruebaAbsoluta))
-// getLinks(mdPruebaAbsoluta);
 
 
 module.exports = {
   pathExits,
   convertToAbsolut,
+  fileRead ,
   readMd,
   readPath,
 }
