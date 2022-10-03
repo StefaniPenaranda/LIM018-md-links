@@ -6,8 +6,9 @@ const axios = require("axios");
 const mdPruebaAbsoluta = "C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/primero.md";
 const mdPruebaRelative = "LIM018-md-links/prueba_1/primero.md";
 const textt = "C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/pruebatext.txt";
+const directorys = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1'
 // const pruebasinLink = 'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\prueba_2.md';
-const mdpruebadirectory =  'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1'; // anterior 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links';
+
 // const  carpetaPrueba = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1';
 // const falla = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/package.json'
 // console.log(process.argv[2])
@@ -68,6 +69,15 @@ const openByDirectory = (pathDir) =>{
    }
    return newArray
   }
+//  console.log(openByDirectory(directorys))
+
+const prueba1 = [
+  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\primero.md',
+  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\prueba_2.md',
+  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\primeraPruebaRecursividad.md',
+  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\segundaPrueba\\tercarpruab.md'
+]
+
 
 // 9.- Función para leer los links
 const getLinks = (router) => {
@@ -96,7 +106,7 @@ const getLinks = (router) => {
   }
   return linksArray;
 };
-//  console.log(getLinks(route))
+  console.log('prueba feña',getLinks(prueba1))
 // getLinks(mdPruebaAbsoluta);
 
 // 10.- FUNCION PARA VALIDAR LINKS
@@ -170,7 +180,7 @@ const broken = (arraylinks) => {
     Broken: brokenLinks.length,
   }
 }
- console.log('prueba deysi',broken(arrayLinkss))
+ // console.log('prueba deysi',broken(arrayLinkss))
 
 
 
