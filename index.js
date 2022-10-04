@@ -57,12 +57,12 @@ const mdLink = (path, options) =>{
   })
   }
 
-mdLink(mdPruebaAbsoluta,{ validate: false }).then((response)=>{
-  console.log('entramdLinks',response)
-})
-.catch ((error)=>{
-console.log('error:'+error)
-})
+// mdLink(mdPruebaAbsoluta,{ validate: false }).then((response)=>{
+//   console.log('entramdLinks',response)
+// })
+// .catch ((error)=>{
+// console.log('error:'+error)
+// })
 
   // // 2.- verificar si el tipo de ruta es absoluta
   // const absolutePath = convertToAbsolut(path)
@@ -79,3 +79,6 @@ console.log('error:'+error)
   //     return getLinks(path);
   //   })
   // }
+  module.exports ={
+    mdLink,
+  }

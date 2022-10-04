@@ -1,6 +1,6 @@
-* [Arreglos](https://curriculum.lab/es/topics/javascript/04-arrays)
+* [Arreglos](https://currictyuioulum.laboratoria.la/es/topics/javascrarrays)
   * [Array - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/)
-  * [Array.prototype.sort() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+  * [Array.prototype.sort() - MDN](https://ds/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
   * [Array.prototype.forEach() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
   * [Array.prototype.map() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
   * [Array.prototype.filter() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
