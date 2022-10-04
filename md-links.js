@@ -17,15 +17,6 @@ const directorys = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1'
 
 // 1.-  Validando que la ruta EXISTA--------------------------------------------------
 const pathExits = (router) => fs.existsSync(router);
-// const pathExits = (router) => {
-//   // return TRUE or FALSE
-//   if (typeof router !== "string") {
-//     console.log("la ruta esta vacia");
-//     return false;
-//   }
-//   return fs.existsSync(router);
-// };
-// console.log(pathExits(route));
 
 // 2.- Validando si es absoluta o relativa , si es relativa la convierte en absoluta----------------------
 // const aBsolute = path.isAbsolute(route); devuelve un booleano
@@ -64,14 +55,12 @@ const openByDirectory = (pathDir) =>{
       for (let i =0 ; i < arrayDirectory.length ; i++){
         const pathAndDirectory = path.join(pathDir,arrayDirectory[i]); // path.join concatena dos rutas
         const readDirectorisAgain = openByDirectory(pathAndDirectory)
-        newArray = newArray.concat(readDirectorisAgain) // 
+        newArray = newArray.concat(readDirectorisAgain) //
       }
    }
    return newArray
   }
 //  console.log(openByDirectory(directorys))
-
-
 
 // 9.- Función para leer los links
 const getLinks = (router) => {
