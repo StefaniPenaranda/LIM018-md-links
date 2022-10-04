@@ -64,19 +64,13 @@ const openByDirectory = (pathDir) =>{
       for (let i =0 ; i < arrayDirectory.length ; i++){
         const pathAndDirectory = path.join(pathDir,arrayDirectory[i]); // path.join concatena dos rutas
         const readDirectorisAgain = openByDirectory(pathAndDirectory)
-        newArray = newArray.concat(readDirectorisAgain)
+        newArray = newArray.concat(readDirectorisAgain) // 
       }
    }
    return newArray
   }
 //  console.log(openByDirectory(directorys))
 
-const prueba1 = [
-  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\primero.md',
-  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\prueba_2.md',
-  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\primeraPruebaRecursividad.md',
-  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\segundaPrueba\\tercarpruab.md'
-]
 
 
 // 9.- Función para leer los links
@@ -106,8 +100,14 @@ const getLinks = (router) => {
   }
   return linksArray;
 };
-  console.log('prueba feña',getLinks(prueba1))
-// getLinks(mdPruebaAbsoluta);
+ //  console.log('prueba feña',getLinks(mdPruebaAbsoluta))
+// getLinks(mdPruebaAbsoluta); ME REGRESA UN ARRAY CON OBJETOS
+const prueba1 = [
+  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\primero.md',
+  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\prueba_2.md',
+  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\primeraPruebaRecursividad.md',
+  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\segundaPrueba\\tercarpruab.md'
+]
 
 // 10.- FUNCION PARA VALIDAR LINKS
 const validateLinks = (path) => {
@@ -141,11 +141,13 @@ const validateLinks = (path) => {
         })
     })
   );
+  // aqui terminar el promise all
 };
-
+// //console.log('ENTRAFOR',validateLinks(mdPruebaAbsoluta))
 // validateLinks(mdPruebaAbsoluta).then((response) =>{
 //  console.log('validateLinks',response)
 // })
+
 
 const arrayLinkss = [
   {

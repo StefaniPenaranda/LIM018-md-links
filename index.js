@@ -19,9 +19,9 @@ const textt = 'LIM01md-links\prueba_1\pruebatex'
 const mdpruebadirectory =  'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1'; // anterior 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links';
 // const mdPruebaRelative = 'LIM018-md-links/prueba_1/primero.md';
 // const mdpruebadirectory = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links';
+const routess = "./README.md";
 
-
-const mdLink = (path, options = {validate:false}) =>{
+const mdLink = (path, options) =>{
   //console.log('primero',path)
   //console.log('luego',options)
   return new Promise((resolve, reject) => {
@@ -33,16 +33,26 @@ const mdLink = (path, options = {validate:false}) =>{
       // convirtiendo la ruta a absoluta
       const absolutePath = convertToAbsolut(path)
       // Entrando al directorio y carpetas y sacando los links
-      const arrayContainingLiks = openByDirectory(absolutePath)
+      const routes = openByDirectory(absolutePath)
       // array que contiene todos los links y los recorre uno  a uno  validandolos
-      const arrayContainingLiksVerificate = validateLinks(arrayContainingLiks)
-      
-      if(options.validate){
-        Promise.all(arrayContainingLiksVerificate).then((response)=>{
-          resolve(response.flat()) //
+
+      const validatedLinks = routes.map((route)=>{
+         return validateLinks(route)
+      })
+      if(options.validate===true)
+      {
+       // resolve( options.validate)
+        Promise.all(validatedLinks).then((response)=>{
+          resolve(response.flat())
         })
+      } else{
+        const resolver = routes.map((linksFalse)=>{
+          return getLinks(linksFalse)
+        })
+        resolve(resolver)
       }
-      resolve (arrayContainingLiksVerificate)
+
+      // resolve (validatedLinks)
     }
   })
   }
