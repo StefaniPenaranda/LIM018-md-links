@@ -16,8 +16,8 @@ const {
 
 // const mdPruebaAbsoluta = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/primero.md';
 // const textt = 'LIM01md-links\prueba_1\pruebatex'
- const mdpruebadirectory =  'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1';
- const mddirectory = './prueba_1';
+//  const mdpruebadirectory =  'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1';
+//  const mddirectory = './prueba_1';
  // anterior 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links';
 // // const mdPruebaRelative = 'LIM018-md-links/prueba_1/primero.md';
 // // const mdpruebadirectory = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links';

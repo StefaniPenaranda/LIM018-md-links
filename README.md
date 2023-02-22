@@ -1,16 +1,11 @@
 # Markdown Links
 
-
-
-
-***
-
 ## 1. Descripción
 Markdown links es una biblioteca para examinar archivos tipo markdown, a través de rutas ingresadas a través de la línea de comando (CLI), las cuales pueden ser archivos unitarios o directorios que contengan archivos con extensión '.md'. Esta nos permite obtener reportes estadísticos de los enlaces encontrados, información sobre el estado de los links a través de peticiones HTTP, así como datos generales.
 
 ## 2. Diagrama de Flujo
 
-![Diagrama de Flujo](C:\Users\STEFANI\Desktop\Laboratoria\md-links\LIM018-md-links\diagramaDeFlujo.jpg)
+![Diagrama de Flujo](LIM018-md-links\diagramaDeFlujo.jpg)
 
 ## 3. Instalación
 
