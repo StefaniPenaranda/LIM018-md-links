@@ -12,7 +12,7 @@ Markdown links es una biblioteca para examinar archivos tipo markdown, a través
 
 Para instalar la biblioteca debe ejecutar el siguiente comando:
 
-npm md-links-ory-chacon -g
+npm md-links-stefani-penaranda -g
 
 ## 4. Guía de uso
 Para ejecutar la línea de comandos en la terminal debe utilizar:
