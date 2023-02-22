@@ -5,8 +5,8 @@ Markdown links es una biblioteca para examinar archivos tipo markdown, a través
 
 ## 2. Diagrama de Flujo
 
-![Diagrama de Flujo](https://raw.githubusercontent.com/StefaniPenaranda/LIM018-md-links/diagramaDeFlujo.jpg)
-LIM018-md-links\diagramaDeFlujo.jpg)
+[Diagrama de Flujo](https://raw.githubusercontent.com/StefaniPenaranda/LIM018-md-links/diagramaDeFlujo.jpg)
+
 
 ## 3. Instalación
 
