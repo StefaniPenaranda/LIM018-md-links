@@ -25,7 +25,7 @@ herramienta usando [Node.js](https://nodejs.org/), que lea y analice archivos
 en formato `Markdown`, para verificar los links que contengan y reportar
 algunas estadísticas.
 
-![md-links](file:///C:/Users/STEFANI/Downloads/Diagrama%20de%20flujo-mdlinksUntitled.jpg)
+![md-links](https://raw.githubusercontent.com/StefaniPenaranda/LIM018-md-links/Diagrama de flujo-mdlinksUntitled.jpg)
 
 ## 2. Resumen del proyecto
 
