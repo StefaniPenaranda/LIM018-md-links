@@ -1,21 +1,14 @@
 # Markdown Links
 
-## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Entregables](#6-entregables)
-* [7. Hacker edition](#7-hacker-edition)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
-* [9. Checklist](#9-checklist)
-* [10. Achicando el problema](#10-achicando-el-problema)
+
 
 ***
 
-## 1. Preámbulo
+## 1. Descripción
+Markdown links es una biblioteca para examinar archivos tipo markdown, a través de rutas ingresadas a través de la línea de comando (CLI), las cuales pueden ser archivos unitarios o directorios que contengan archivos con extensión '.md'. Esta nos permite obtener reportes estadísticos de los enlaces encontrados, información sobre el estado de los links a través de peticiones HTTP, así como datos generales.
+
+## 2. Diagrama de Flujo
 
 [Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado
 ligero muy popular entre developers. Es usado en muchísimas plataformas que
