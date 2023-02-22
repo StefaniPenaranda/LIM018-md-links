@@ -12,10 +12,11 @@
     "start": "node index.js",
     "test": "jest --coverage"
   },
+
   "bin": {
     "md-links": "./cli.js"
-
   },
+  
   "devDependencies": {
     "eslint": "^8.23.0",
     "eslint-config-airbnb-base": "^15.0.0",

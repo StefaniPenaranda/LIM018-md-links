@@ -1,9 +1,7 @@
-/* globals describe, expect, it */
-// const mdLinks = require('../index.js');
 const { pathExits,convertToAbsolut , pahtIsFile, readFilesMd, readMd, getLinks, validateLinks, openByDirectory } = require ('../md-links.js');
+const axios = require('axios');
 const route = './README.md';
 const falseRoute = './REAE.md';
-const number = 12345;
 const mdPruebaAbsoluta = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/primero.md';
 const mdPruebaRelative = 'LIM018-md-links/prueba_1/primero.md';
 const noEscapada = "C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\LIM018-md-links\\prueba_1\\primero.md"
@@ -13,6 +11,7 @@ const contentPrueba2 = 'Este archivono tendra links, es prueba para ver si funio
 const md = '.md'
 const arrayVacio = [];
 // const util = require('node:util');
+jest.mock('axios');
 
 describe  ('pruebas de la función pathExits', () => {
   // it ('Si no es un string debe retornar false', () => {
@@ -56,12 +55,12 @@ describe('Pruebas de la función readFiles', () => {
   });
 });
 
-describe('Prueba de la función openDirecory', ()=>{
-  it('Si se ingresa una ruta que es un archivo y es un archivo md te devuelve la ruta',()=>{
+describe('Prueba de la función openDirecory - recursividad', ()=>{
+  it('Reconocoe si es un archivo y si lo es, verificas que sea "md" y  devuelve la ruta',()=>{
     const arrayRoute = ["./README.md"]
     expect(openByDirectory(route)).toStrictEqual(arrayRoute)
   })
-  it ('deberia rwetornar un array con las rutyas del directorio', ()=>{
+  it ('deberia retornar un array con las rutas del directorio', ()=>{
     const mdpruebadirectory =  'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1';
     const mdPrueba = [
       'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\primero.md',
@@ -70,7 +69,6 @@ describe('Prueba de la función openDirecory', ()=>{
       'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\segundaPrueba\\tercarpruab.md'
     ]
     expect (openByDirectory(mdpruebadirectory)).toEqual(mdPrueba)
-
   })
 })
 // describe('Prueba de la función getLinks',() => {

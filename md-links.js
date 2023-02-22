@@ -1,23 +1,15 @@
 const path = require("node:path");
 const fs = require("fs");
-// const { default: axios } = require('axios');
-const route = "./README.md";
 const axios = require("axios");
+// const route = "./README.md";
 const mdPruebaAbsoluta = "C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/primero.md";
-const mdPruebaRelative = "LIM018-md-links/prueba_1/primero.md";
-const textt = "C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/pruebatext.txt";
-const directorys = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1'
-// const pruebasinLink = 'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\prueba_2.md';
+const mdPruebaRelative = "./prueba_1/primero.md";
+// const textt = "C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/pruebatext.txt";
+// const directorys = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1'
 
-// const  carpetaPrueba = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1';
-// const falla = 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/package.json'
-// console.log(process.argv[2])
-// console.log(__dirname)
-// console.log(path);
 
 // 1.-  Validando que la ruta EXISTA--------------------------------------------------
 const pathExits = (router) => fs.existsSync(router);
-
 // 2.- Validando si es absoluta o relativa , si es relativa la convierte en absoluta----------------------
 // const aBsolute = path.isAbsolute(route); devuelve un booleano
 const convertToAbsolut = (router) =>(path.isAbsolute(router)? router : path.resolve(router));
@@ -27,6 +19,7 @@ const pahtIsFile = (archivo) => fs.statSync(archivo).isFile();
 
 // 4.-  Me indica el extencion que tiene la ruta// return la extensión del archivo-----
 const readMd = (router) => path.extname(router);
+// console.log(readMd(route))
 
 // 5.- lee el archivo  // return todo el interior del archivo--------------------------------
 const readFile = (archivo) => fs.readFileSync(archivo, "utf-8");
@@ -60,7 +53,7 @@ const openByDirectory = (pathDir) =>{
    }
    return newArray
   }
-//  console.log(openByDirectory(directorys))
+  //  console.log(openByDirectory(directorys))
 
 // 9.- Función para leer los links
 const getLinks = (router) => {
@@ -69,11 +62,11 @@ const getLinks = (router) => {
   const comproReadFiles = readFile(router);
   const readlinks = comproReadFiles.match(expresionreglar);
   if (!readlinks) {
-    console.log("No se encontraron link");
+    // console.log("No se encontraron link");
     return [];
   }
   for (let i = 0; i < readlinks.length; i++) {
-    const finalText = readlinks[i].indexOf("]");
+    const finalText = readlinks[i].indexOf("]");// devuelve el  indice del primer elemeto que encontro segun el parametro
     const extrasionLinks = readlinks[i].slice(
       finalText + 2,
       readlinks[i].length - 1
@@ -91,12 +84,12 @@ const getLinks = (router) => {
 };
  //  console.log('prueba feña',getLinks(mdPruebaAbsoluta))
 // getLinks(mdPruebaAbsoluta); ME REGRESA UN ARRAY CON OBJETOS
-const prueba1 = [
-  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\primero.md',
-  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\prueba_2.md',
-  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\primeraPruebaRecursividad.md',
-  'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\segundaPrueba\\tercarpruab.md'
-]
+// const prueba1 = [
+//   'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\primero.md',
+//   'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\prueba_2.md',
+//   'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\primeraPruebaRecursividad.md',
+//   'C:\\Users\\STEFANI\\desktop\\md-links\\LIM018-md-links\\prueba_1\\recursividad\\segundaPrueba\\tercarpruab.md'
+// ]
 
 // 10.- FUNCION PARA VALIDAR LINKS
 const validateLinks = (path) => {
@@ -132,27 +125,25 @@ const validateLinks = (path) => {
   );
   // aqui terminar el promise all
 };
-// //console.log('ENTRAFOR',validateLinks(mdPruebaAbsoluta))
-// validateLinks(mdPruebaAbsoluta).then((response) =>{
-//  console.log('validateLinks',response)
-// })
+//console.log('ENTRAFOR',validateLinks(mdPruebaAbsoluta))
+//
 
-
-const arrayLinkss = [
-  {
-    href: 'https://currictyuioulum.laboratoria.la/es/topics/javascrarrays',
-    text: 'Arreglos',
-    file: 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/primero.md',
-    status: 404,
-    message: 'fail'
-  }
-]
+// const arrayLinkss = [
+//   {
+//     href: 'https://currictyuioulum.laboratoria.la/es/topics/javascrarrays',
+//     text: 'Arreglos',
+//     file: 'C:/Users/STEFANI/desktop/md-links/LIM018-md-links/prueba_1/primero.md',
+//     status: 404,
+//     message: 'fail'
+//   }
+// ]
 
 // 11.- FUNCIÓN PARA CONTRABILZAR LINK VALIDOS E INVALIDOS
 const stats = (router) => {
-  const links = getLinks(router)
+  // const absolute = convertToAbsolut(router)
+  const links = getLinks(router);
   const links2 = links.map((item) => item.href);
-  const unique = new Set(links2).size
+  const unique = new Set(links2).size;
 // set es para crear objetos que almacenan valores unicos
 //size devuelve el número de elemetos que hay en el objeto set
     return{
@@ -160,9 +151,9 @@ const stats = (router) => {
       Unique: unique,
     }
 }
-//console.log(stats(mdPruebaAbsoluta));
+//console.log(stats(mdPruebaRelative));
 
-// 12.- BORKEN STATS
+// 12.- BROKEN STATS
 const broken = (arraylinks) => {
   const brokenLinks = arraylinks.filter((link)=>{
     return link.message === 'fail' // verificar si esta bien ------------------------------------------
@@ -171,7 +162,7 @@ const broken = (arraylinks) => {
     Broken: brokenLinks.length,
   }
 }
- // console.log('prueba deysi',broken(arrayLinkss))
+// console.log('prueba deysi',broken(arrayLinkss))
 
 
 
